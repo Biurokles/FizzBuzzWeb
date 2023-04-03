@@ -1,6 +1,8 @@
 ﻿using FizzBuzzWeb.Forms;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace FizzBuzzWeb.Pages
 {
@@ -45,6 +47,13 @@ namespace FizzBuzzWeb.Pages
             {
                 Result = "";
             }
+            if (ModelState.IsValid)
+            {
+                HttpContext.Session.SetString("Data",
+                JsonConvert.SerializeObject(FizzBuzz));
+                
+            }
+
             return Page();  
         }
     }
