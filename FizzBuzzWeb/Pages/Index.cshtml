@@ -4,12 +4,16 @@
     ViewData["Title"] = "Fizz Buzz";
 }
 <div class="text-center">
-    <h1 class="display-4">Welcome @Model.Name</h1>
+    <h1 class="display-4">Welcome</h1>
     <form method="post">
         <label asp-for="FizzBuzz.Number"></label>
         <input asp-for="FizzBuzz.Number" /><br />
+        <label asp-for="FizzBuzz.FirstName"></label>
+        <input asp-for="FizzBuzz.FirstName" /><br />
         <button type="submit">Zatwierdź</button>
-        <span asp-validation-for="FizzBuzz.Number" class="text-danger"></span>
+        <span asp-validation-for="FizzBuzz.Number" class="text-danger"></span><br />
+        <span asp-validation-for="FizzBuzz.FirstName" class="text-danger"></span>
+
       
     </form>
     @if (Model.Result != null && Model.Result != "")

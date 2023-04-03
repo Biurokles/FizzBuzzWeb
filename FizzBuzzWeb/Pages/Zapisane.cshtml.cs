@@ -10,7 +10,6 @@ namespace FizzBuzzWeb.Pages
     public class ZapisaneModel : PageModel
     {
         public FizzBuzzForm FizzBuzz { get; set; }
-
         public void OnGet()
         {
 

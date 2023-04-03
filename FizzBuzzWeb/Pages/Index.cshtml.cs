@@ -14,6 +14,7 @@ namespace FizzBuzzWeb.Pages
         public FizzBuzzForm FizzBuzz { get; set; }
         
         public string Name { get; set; }
+        public string Year { get; set; }
         public string Result { get; set; }
         
         public IndexModel(ILogger<IndexModel> logger)
@@ -30,23 +31,25 @@ namespace FizzBuzzWeb.Pages
         }
         public IActionResult OnPost()
         {
-            if(FizzBuzz.Number%15==0)
+            char imie = FizzBuzz.FirstName.Last();
+            if(FizzBuzz.Number%4==0)
             {
-                Name = "Fiucie";
-                Result = "FizzBuzz";
-            }
-            else if (FizzBuzz.Number % 3 == 0)
-            {
-                Result = "Fizz";
-            }
-            else if (FizzBuzz.Number % 5 == 0)
-            {
-                Result = "Buzz";
+              
+                Year = "Ten rok jest przestępny";
             }
             else
             {
-                Result = "";
+                Year = "Ten rok nie jest przestępny";
             }
+            if (imie == 'a')
+            {
+                Name = $"{FizzBuzz.FirstName} urodziła się w {FizzBuzz.Number}.";
+            }
+            else
+            {
+                Name = $"{FizzBuzz.FirstName} urodził się w {FizzBuzz.Number}.";
+            }
+            Result = Name + " " +  Year;
             if (ModelState.IsValid)
             {
                 HttpContext.Session.SetString("Data",
